@@ -257,17 +257,38 @@ section h2 i { margin-right: 15px; }
 /* Rodapé */
 footer { background-color: #000; color: #888; text-align: center; padding: 25px 0; font-size: 0.9rem; border-top: 1px solid #222; }
 
-/* Responsividade */
 @media (max-width: 768px) {
     header .container {
         flex-direction: column;
         gap: 20px;
     }
 
+    /* Substitui imagem de fundo por imagem interna no mobile */
     #hero {
-        background-position: center top;
+        background-image: none;
+        height: auto;
+        padding: 40px 20px;
+        background-color: var(--cor-fundo-dark);
+    }
+
+    .hero-content {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .hero-content::before {
+        content: "";
+        display: block;
+        width: 100%;
+        max-width: 100%;
+        height: auto;
+        aspect-ratio: 16 / 9;
+        background-image: url('../imagens/banda.PNG');
         background-size: contain;
-        height: 50vh; /* ou ajuste conforme necessário, ex: 60vh */
+        background-repeat: no-repeat;
+        background-position: center;
+        margin-bottom: 20px;
     }
 
     .hero-content p {
